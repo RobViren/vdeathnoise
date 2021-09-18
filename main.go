@@ -46,9 +46,9 @@ func playit(log_entry, path string) {
 	defer discord.Close()
 	if strings.Contains(log_entry, "Sbeve The Dim") {
 		dgvoice.PlayAudioFile(dgv, path+"/audio/robs.mp3", make(chan bool))
-	} else if strings.Contains(log_entry, "Dan") {
+	} else if strings.Contains(log_entry, "Akicitia") {
 		dgvoice.PlayAudioFile(dgv, path+"/audio/odins.mp3", make(chan bool))
-	} else if strings.Contains(log_entry, "Brandon") {
+	} else if strings.Contains(log_entry, "Nodnarb") {
 		dgvoice.PlayAudioFile(dgv, path+"/audio/chances.mp3", make(chan bool))
 	} else {
 		dgvoice.PlayAudioFile(dgv, path+"/audio/sads.mp3", make(chan bool))
@@ -58,7 +58,6 @@ func playit(log_entry, path string) {
 func main() {
 	working_dir, err := os.Executable()
 	working_dir = filepath.Dir(working_dir)
-	fmt.Println(working_dir)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -80,7 +79,7 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
-		fmt.Println(alive_time)
+
 		fmt.Fprintf(w, "Hello, %q", html.EscapeString(r.URL.Path))
 		if alive_time > 30 {
 			go playit(log_entry, working_dir)
